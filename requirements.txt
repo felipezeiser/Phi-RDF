@@ -14,7 +14,7 @@ Flask==2.2.5
 folium==0.14.0
 fonttools==4.38.0
 geographiclib==2.0
-geopandas==0.13.0
+geopandas==0.10.2
 geopy==2.3.0
 idna==3.4
 itsdangerous==2.1.2
