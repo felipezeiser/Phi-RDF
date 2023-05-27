@@ -35,7 +35,7 @@ def index():
     geojson["latitude"] = geojson["geometry"].centroid.y
 
     # Carregar o modelo e obtem as previsões dos casos de COVID-19
-    modelo = joblib.load('ml/model.pkl')
+    modelo = joblib.load('ml/model.joblib')
     dados = pd.read_pickle('ml/testesite.pkl')
     municipios = pd.read_pickle('ml/municipios.pkl')
     
@@ -130,7 +130,7 @@ def municipio_info():
     
 
     # Carregar o modelo e obtem as previsões dos casos de COVID-19
-    modelo = joblib.load('ml/model.pkl')
+    modelo = joblib.load('ml/model.joblib')
     dados = pd.read_pickle('ml/testesite.pkl')
     municipios = pd.read_pickle('ml/municipios.pkl')
 
