@@ -10,7 +10,7 @@ cloudpickle==2.2.1
 contourpy==1.0.5
 cycler==0.11.0
 Fiona==1.9.4
-Flask==2.3.2
+Flask==2.2.5
 folium==0.14.0
 fonttools==4.39.4
 geographiclib==2.0
