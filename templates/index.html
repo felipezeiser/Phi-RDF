@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <!-- [Head] start -->
+  <head>
+    <title> PHI RDF - Predição de Casos de COVID-19</title>
+    <!-- [Meta] -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="description"
+      content="Phi RDF é um sistema de predição  de casos de COVID-19."
+    />
+    <meta name="keywords" content="Phi RDF, Dashboard Covid-19, Rio grande do Sul, Previsão, COVID-19" />
+    <meta name="author" content="Phi Healthcare ®" />
+
+<!-- [Favicon] icon -->
+<link rel="icon" href="/static/images/favicon.png" type="image/x-icon" />
+<!-- [Google Font] Family -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" id="main-font-link" />
+
+<!-- [Tabler Icons] https://`.com -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.19.0/tabler-icons.min.css" />
+
+<!-- [Template CSS Files] -->
+<link rel="stylesheet" href="/static/css/style.css" id="main-style-link" />
+<link rel="stylesheet" href="/static/css/style-preset.css" id="preset-style-link" />
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.css" />
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+  </head>
+  <!-- [Head] end -->
+  <!-- [Body] Start -->
+  <body>
+    <!-- [ Pre-loader ] start -->
+<div class="loader-bg">
+  <div class="loader-track">
+    <div class="loader-fill"></div>
+  </div>
+</div>
+<!-- [ Pre-loader ] End -->
+ <!-- [ Header Topbar ] start -->
+<header class="pc-header">
+  <div class="m-header">
+    <a href="index.html" class="b-brand">
+      <!-- ========   change your logo hear   ============ -->
+      <img src="/static/images/logo_phi.png" alt="" class="logo logo-lg" height="50px" />
+    </a>
+    <!-- ======= Menu collapse Icon ===== -->
+    <div class="pc-h-item">
+      <a href="#" class="pc-head-link head-link-secondary m-0" id="sidebar-hide">
+        <i class="ti ti-menu-2"></i>
+      </a>
+    </div>
+  </div>
+  <div class="header-wrapper"> <!-- [Mobile Media Block] start -->
+<div class="me-auto pc-mob-drp">
+  <ul class="list-unstyled">
+    <li class="pc-h-item header-mobile-collapse">
+      <a href="#" class="pc-head-link head-link-secondary ms-0" id="mobile-collapse">
+        <i class="ti ti-menu-2"></i>
+      </a>
+    </li>
+    <li class="dropdown pc-h-item d-inline-flex d-md-none">
+      <a class="pc-head-link head-link-secondary dropdown-toggle arrow-none m-0" data-bs-toggle="dropdown" href="#"
+        role="button" aria-haspopup="false" aria-expanded="false">
+        <i class="ti ti-search"></i>
+      </a>
+      <div class="dropdown-menu pc-h-dropdown drp-search">
+        <form class="px-3">
+          <div class="form-group mb-0 d-flex align-items-center">
+            <i class="ti ti-search"></i>
+            <input type="search" class="form-control border-0 shadow-none" placeholder="Procure o munícipio..." />
+          </div>
+        </form>
+      </div>
+    </li>
+    <li class="pc-h-item d-none d-md-inline-flex">
+      <form class="header-search">
+        <i class="ti ti-search icon-search"></i>
+        <input type="search" class="form-control" placeholder="Procure o munícipio..." />
+      </form>
+    </li>
+  </ul>
+</div>
+<!-- [Mobile Media Block end] -->
+ </div>
+</header>
+<!-- [ Header ] end -->
+ <!-- [ Sidebar Menu ] start -->
+<nav class="pc-sidebar">
+  <div class="navbar-wrapper">
+    <div class="m-header">
+      <a href="index.html" class="b-brand">
+        <!-- ========   Change your logo from here   ============ -->
+        <img src="/static/images/logo_phi.png" alt="" class="logo logo-lg" height="50px"/>
+      </a>
+    </div>
+    <div class="navbar-content">
+      <ul class="pc-navbar">
+        <li class="pc-item pc-caption text-secondary">
+          <label>Dashboard</label>
+          <i class="ti ti-dashboard"></i>
+        </li>
+        <li class="pc-item">
+          <a href="" class="pc-link"><span class="pc-micon"><i class="ti ti-dashboard"></i></span><span
+              class="pc-mtext">Dashboard</span></a>
+        </li>
+
+        <li class="pc-item">
+          <a class="pc-link" onclick="openModal()"><span class="pc-micon"><i class="ti ti-timeline"></i></span>
+            <span class="pc-mtext">Munícipios em Atenção</span></a>
+
+        </li>
+
+
+        <li class="pc-item pc-caption text-secondary">
+          <label>Documentos</label>
+          <i class="ti ti-brand-chrome"></i>
+        </li>
+
+        <li class="pc-item">
+          <a href="/metodologia" class="pc-link"><span class="pc-micon"><i class="ti ti-books"></i></span><span
+              class="pc-mtext">Metodologia</span></a>
+        </li>
+
+        <!-- <li class="pc-item">
+          <a href="" class="pc-link"><span class="pc-micon"><i class="ti ti-info-circle"></i></span><span
+              class="pc-mtext">Aos Gestores</span></a>
+        </li> -->
+
+        <li class="pc-item pc-caption text-secondary">
+          <label>Veja Mais</label>
+          <i class="ti ti-brand-chrome"></i>
+        </li>
+      </ul>
+      <div class="pc-navbar-card bg-secondary rounded">
+        <h4 class="text-white">Phi Healthcare</h4>
+        <p class="text-white opacity-75">Conheças mais produtos da Phi Healthcare</p>
+        <a href="http://phihc.com/" target="_blank" class="btn btn-light text-secondary">Acessar</a>
+      </div>
+    </div>
+  </div>
+</nav>
+<!-- [ Sidebar Menu ] end -->
+
+<!-- [ Modal Gravidade ] start -->
+
+<div class="modal fade" id="onload" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"> <!-- Add this line to your code -->
+  <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title text-danger" id="exampleModalLabel">
+                
+                <!-- <div class="avtar avtar-lg bg-light-danger">
+                  <i class="text-danger ti ti-timeline"></i>
+                </div> -->
+
+                <span class="d-block f-24 f-w-500 my-1">
+                  <div class="avtar avtar-lg bg-light-danger"><i class="ti ti-timeline opacity-50"></i></div>
+                  Munícipios em atenção!
+                </span>
+                
+                <!-- <h3 class="text-danger">Munícipios em atenção!</h3> -->
+                
+              </h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">Cidade</th>
+                  <th scope="col">Casos</th>
+                  <th scope="col">+ Info</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for _, municipio in municipios_graves.iterrows() %} 
+                <tr>
+                  <td>
+                    {{ municipio['name'] }}
+                  </td>
+                  <td>
+                    {{ municipio['qnt_casos'] }}
+                  </td>
+                  <td>
+                    <a href="#" class="text-secondary municipio-btn btn-sm" data-municipio-id="{{municipio['id']}}">Acessar</a>
+                  </td>
+                </tr>               
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+          <div class="modal-footer">
+              <button type="button" class="btn btn-light-secondary" data-bs-dismiss="modal">Fechar</button>
+          </div>
+      </div>
+  </div>
+</div> <!-- And the relavant closing div tag -->
+
+<!-- [ Modal Gravidade] end -->
+
+<!-- [ Modal Casos ] start -->
+
+<div class="modal fade" id="municipiosModal" tabindex="-1" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title" id="municipioNome"></h3>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        
+      </div>
+      <div class="modal-body">
+
+        <div class="col-xl-12 col-md-12">
+          <div class="card bg-secondary-2 dashnum-card text-white overflow-hidden">
+            <span class="round small"></span>
+            <span class="round big"></span>
+            <div class="card-body">
+              <div class="row">
+                <div class="col">
+                  <div class="avtar avtar-lg">
+                    <i class="text-white ti ti-virus-search"></i>
+                  </div>
+                </div>
+              </div>
+              <span class="text-white d-block f-34 f-w-500 my-2"><span id="qntCasos"></span> <i class="ti ti-arrow-up-right opacity-50"></i></span>
+              <p class="mb-0 opacity-50">Novos casos previstos para os próximos 7 dias</p>
+            </div>
+          </div>
+        </div>
+
+        
+        <div class="rounded bg-light-secondary overflow-hidden mb-3">
+          <div class="px-3 pt-3">
+            <div class="row mb-1 align-items-start">
+              <div class="col-auto">
+                <h4 class="text-secondary mb-0">Medidas de Prevenção Sugeridas:</h4>
+                <h5 class="mb-0" id="medidas"></h5>
+                
+                <small class="text-muted">Informações baseadas em orientações do MS/BR e OMS.</small>
+                
+              </div>
+            </div>
+          </div>
+          <div id="bajajchart"></div>
+        </div>
+
+        <!-- <h4><strong>Quantidade de Casos: </strong><span id="qntCasos"></span></h4> -->
+        <!-- <br><br> -->
+        <p><strong>Importância das Variáveis: </strong><span id="shap"></span></p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary closeModal" data-dismiss="modal">Fechar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- [ Modal Casos ] end -->
+
+
+
+
+    <!-- [ Main Content ] start -->
+    <div class="pc-container">
+      <div class="pc-content">
+        <!-- [ Main Content ] start -->
+        <div class="row">
+          <!-- [ sample-page ] start -->
+          <div class="col-xl-3 col-md-6">
+            <div class="card bg-primary dashnum-card text-white overflow-hidden">
+              <span class="round small"></span>
+              <span class="round big"></span>
+              <div class="card-body">
+                <div class="row">
+                  <div class="col">
+                    <div class="avtar avtar-lg">
+                      <i class="text-white ti ti-vaccine"></i>
+                    </div>
+                  </div>
+                </div>
+                <span class="text-white d-block f-34 f-w-500 my-2">1350 <i class="ti ti-arrow-up-right opacity-50"></i></span>
+                <p class="mb-0 opacity-50">Vacinados</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-3 col-md-6">
+            <div class="card bg-warning dashnum-card text-white overflow-hidden">
+              <span class="round small"></span>
+              <span class="round big"></span>
+              <div class="card-body">
+                <div class="row">
+                  <div class="col">
+                    <div class="avtar avtar-lg">
+                      <i class="text-white ti ti-virus-search"></i>
+                    </div>
+                  </div>
+                </div>
+                <span class="text-white d-block f-34 f-w-500 my-2">1350 <i class="ti ti-arrow-up-right opacity-50"></i></span>
+                <p class="mb-0 opacity-50">Novos casos</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-3 col-md-6">
+            <div class="card bg-orange-900 dashnum-card text-white overflow-hidden">
+              <span class="round small"></span>
+              <span class="round big"></span>
+              <div class="card-body">
+                <div class="row">
+                  <div class="col">
+                    <div class="avtar avtar-lg">
+                      <i class="text-white ti ti-grave"></i>
+                    </div>
+                  </div>
+                </div>
+                <div class="tab-content" id="chart-tab-tabContent">
+                  <div class="tab-pane show active" id="chart-tab-home" role="tabpanel" aria-labelledby="chart-tab-home-tab" tabindex="0">
+                    <div class="row">
+                      <div class="col-6">
+                        <span class="text-white d-block f-34 f-w-500 my-2">130<i class="ti ti-arrow-up-right opacity-50"></i></span>
+                        <p class="mb-0 opacity-50">Óbitos</p>
+                      </div>
+                      <div class="col-6">
+                        <div id="tab-chart-1"></div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-3 col-md-6">
+            <div class="card dashnum-card dashnum-card-small overflow-hidden">
+              <span class="round bg-secondary small"></span>
+              <span class="round bg-secondary big"></span>
+              <div class="card-body p-3">
+                <div class="d-flex align-items-center">
+                  <div class="avtar avtar-lg bg-light-secondary">
+                    <i class="text-secondary ti ti-medical-cross"></i>
+                  </div>
+                  <div class="ms-2">
+                    <h4 class="mb-1">203 <i class="ti ti-arrow-up-right opacity-50"></i></h4>
+                    <p class="mb-0 opacity-50 text-sm">Hospitalizações</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card dashnum-card dashnum-card-small overflow-hidden">
+              <span class="round bg-danger small"></span>
+              <span class="round bg-danger big"></span>
+              <div class="card-body p-3">
+                <div class="d-flex align-items-center">
+                  <div class="avtar avtar-lg bg-light-danger">
+                    <i class="text-danger ti ti-heart-rate-monitor"></i>
+                  </div>
+                  <div class="ms-2">
+                    <h4 class="mb-1">34 <i class="ti ti-arrow-up-right opacity-50"></i></h4>
+                    <p class="mb-0 opacity-50 text-sm">UTI</p>  
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-xl-12 col-md-12">
+            <div class="card">
+              <div class="card-body">
+                <div class="row mb-3 align-items-center">
+                  <div class="col">
+                    <h2 class="text-secondary">Rio Grande do Sul</h2>
+                    <h5>Previsão de novos casos para os próximos 7 dias</h5>
+                  </div>
+                </div>
+                <div id="growthchart">
+                    {{map|safe}}
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+          
+          <!-- [ sample-page ] end -->
+        </div>
+        <!-- [ Main Content ] end -->
+      </div>
+    </div>
+    <!-- [ Main Content ] end -->
+    <footer class="pc-footer">
+      <div class="footer-wrapper container-fluid">
+        <div class="row">
+          <div class="col my-1">
+            <p class="m-0">Copyright &copy; <a href="http://phihc.com/" target="_blank">Phi Healthcare</a></p>
+          </div>
+          <div class="col-auto my-1">
+            <ul class="list-inline footer-link mb-0">
+              <li class="list-inline-item"><a href="http://phihc.com/" target="_blank">Home</a></li>
+              <!-- <li class="list-inline-item"><a href="#" target="_blank">Privacy Policy</a></li> -->
+              <li class="list-inline-item"><a href="http://phihc.com/#footer" target="_blank">Entre em contato</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+ <!-- Required Js -->
+<script src="/static/js/plugins/popper.min.js"></script>
+<script src="/static/js/plugins/simplebar.min.js"></script>
+<script src="/static/js/plugins/bootstrap.min.js"></script>
+<script src="/static/js/config.js"></script>
+<script src="/static/js/pcoded.js"></script>
+
+
+    <!-- [Page Specific JS] start -->
+    <!-- Apex Chart -->
+    <!-- <script src="/static/js/plugins/apexcharts.min.js"></script> -->
+    <script src="/static/js/pages/dashboard-default.js"></script>
+    <!-- [Page Specific JS] end -->
+  </body>
+  <!-- [Body] end -->
+</html>

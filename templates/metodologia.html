@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <!-- [Head] start -->
+  <head>
+    <title> PHI RDF - Predição de Casos de COVID-19</title>
+    <!-- [Meta] -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="description"
+      content="Phi RDF é um sistema de predição  de casos de COVID-19."
+    />
+    <meta name="keywords" content="Phi RDF, Dashboard Covid-19, Rio grande do Sul, Previsão, COVID-19" />
+    <meta name="author" content="Phi Healthcare ®" />
+
+<!-- [Favicon] icon -->
+<link rel="icon" href="/static/images/favicon.png" type="image/x-icon" />
+<!-- [Google Font] Family -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" id="main-font-link" />
+
+<!-- [Tabler Icons] https://`.com -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.19.0/tabler-icons.min.css" />
+
+<!-- [Template CSS Files] -->
+<link rel="stylesheet" href="/static/css/style.css" id="main-style-link" />
+<link rel="stylesheet" href="/static/css/style-preset.css" id="preset-style-link" />
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.css" />
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+  </head>
+  <!-- [Head] end -->
+  <!-- [Body] Start -->
+  <body>
+    <!-- [ Pre-loader ] start -->
+<div class="loader-bg">
+  <div class="loader-track">
+    <div class="loader-fill"></div>
+  </div>
+</div>
+<!-- [ Pre-loader ] End -->
+ <!-- [ Header Topbar ] start -->
+<header class="pc-header">
+  <div class="m-header">
+    <a href="index.html" class="b-brand">
+      <!-- ========   change your logo hear   ============ -->
+      <img src="/static/images/logo_phi.png" alt="" class="logo logo-lg" height="50px" />
+    </a>
+    <!-- ======= Menu collapse Icon ===== -->
+    <div class="pc-h-item">
+      <a href="#" class="pc-head-link head-link-secondary m-0" id="sidebar-hide">
+        <i class="ti ti-menu-2"></i>
+      </a>
+    </div>
+  </div>
+  <div class="header-wrapper"> <!-- [Mobile Media Block] start -->
+<div class="me-auto pc-mob-drp">
+  <ul class="list-unstyled">
+    <li class="pc-h-item header-mobile-collapse">
+      <a href="#" class="pc-head-link head-link-secondary ms-0" id="mobile-collapse">
+        <i class="ti ti-menu-2"></i>
+      </a>
+    </li>
+    <li class="dropdown pc-h-item d-inline-flex d-md-none">
+      <a class="pc-head-link head-link-secondary dropdown-toggle arrow-none m-0" data-bs-toggle="dropdown" href="#"
+        role="button" aria-haspopup="false" aria-expanded="false">
+        <i class="ti ti-search"></i>
+      </a>
+      <div class="dropdown-menu pc-h-dropdown drp-search">
+        <form class="px-3">
+          <div class="form-group mb-0 d-flex align-items-center">
+            <i class="ti ti-search"></i>
+            <input type="search" class="form-control border-0 shadow-none" placeholder="Procure o munícipio..." />
+          </div>
+        </form>
+      </div>
+    </li>
+    <li class="pc-h-item d-none d-md-inline-flex">
+      <form class="header-search">
+        <i class="ti ti-search icon-search"></i>
+        <input type="search" class="form-control" placeholder="Procure o munícipio..." />
+      </form>
+    </li>
+  </ul>
+</div>
+<!-- [Mobile Media Block end] -->
+ </div>
+</header>
+<!-- [ Header ] end -->
+ <!-- [ Sidebar Menu ] start -->
+<nav class="pc-sidebar">
+  <div class="navbar-wrapper">
+    <div class="m-header">
+      <a href="index.html" class="b-brand">
+        <!-- ========   Change your logo from here   ============ -->
+        <img src="/static/images/logo_phi.png" alt="" class="logo logo-lg" height="50px"/>
+      </a>
+    </div>
+    <div class="navbar-content">
+      <ul class="pc-navbar">
+        <li class="pc-item pc-caption text-secondary">
+          <label>Dashboard</label>
+          <i class="ti ti-dashboard"></i>
+        </li>
+        <li class="pc-item">
+          <a href="/" class="pc-link"><span class="pc-micon"><i class="ti ti-dashboard"></i></span><span
+              class="pc-mtext">Dashboard</span></a>
+        </li>
+
+        <!-- <li class="pc-item">
+          <a class="pc-link" onclick="openModal()"><span class="pc-micon"><i class="ti ti-timeline"></i></span>
+            <span class="pc-mtext">Munícipios em Atenção</span></a>
+
+        </li> -->
+
+
+        <li class="pc-item pc-caption text-secondary">
+          <label>Documentos</label>
+          <i class="ti ti-brand-chrome"></i>
+        </li>
+
+        <li class="pc-item">
+          <a href="/metodologia" class="pc-link"><span class="pc-micon"><i class="ti ti-books"></i></span><span
+              class="pc-mtext">Metodologia</span></a>
+        </li>
+
+        <!-- <li class="pc-item">
+          <a href="" class="pc-link"><span class="pc-micon"><i class="ti ti-info-circle"></i></span><span
+              class="pc-mtext">Aos Gestores</span></a>
+        </li> -->
+
+        <li class="pc-item pc-caption text-secondary">
+          <label>Veja Mais</label>
+          <i class="ti ti-brand-chrome"></i>
+        </li>
+      </ul>
+      <div class="pc-navbar-card bg-secondary rounded">
+        <h4 class="text-white">Phi Healthcare</h4>
+        <p class="text-white opacity-75">Conheças mais produtos da Phi Healthcare</p>
+        <a href="http://phihc.com/" target="_blank" class="btn btn-light text-secondary">Acessar</a>
+      </div>
+    </div>
+  </div>
+</nav>
+<!-- [ Sidebar Menu ] end -->
+
+    <!-- [ Main Content ] start -->
+    <div class="pc-container">
+      <div class="pc-content">
+        <!-- [ Main Content ] start -->
+        <div class="row">
+          <!-- [ sample-page ] start -->
+            
+          <div class="col-xl-12 col-md-12">
+            <div class="card">
+              <div class="card-body">
+                <div class="row mb-3 align-items-center">
+                  <div class="col">
+                    <h2 class="text-secondary">Metodologia de desenvolvimento do Phi RDF</h2>
+                    <h5>Versão 1.0.0 - 27/05/2023</h5>
+
+                    <p>O Phi RDF é um modelo de machine learning para prever novos casos de COVID-19 em municípios do Rio Grande do Sul, utilizando bancos de dados públicos, como o SIVEP-Gripe, SRAG, SI-PNI e eSUS AB.
+
+                    <p>Para prever novos casos de COVID-19 em municípios do Rio Grande do Sul, foram avaliados diversos modelos de machine learning, incluindo Extreme Gradient Boosting, Random Forest Regressor, Elastic Net, Lasso Regression, Bayesian Ridge, Lasso Least Angle Regression, Linear Regression, Ridge Regression, Huber Regressor, Extra Trees Regressor, Light Gradient Boosting Machine, Decision Tree Regressor, K-Neighbors Regressor, AdaBoost Regressor, Orthogonal Matching Pursuit, Dummy Regressor, Passive Aggressive Regressor e Least Angle Regression.</p>
+                        
+                    <p>A metodologia adotada dividiu os dados em dois conjuntos: treinamento (80%) e teste (20%). O conjunto de treinamento foi utilizado para treinar os modelos, enquanto o conjunto de teste foi reservado exclusivamente para avaliar o desempenho desses modelos. Além disso, o conjunto de treinamento foi dividido novamente usando a metodologia de KFold, com um valor de K igual a 10. Essa técnica permite criar 10 subconjuntos diferentes de treinamento e validação, permitindo que cada modelo seja treinado 10 vezes.</p>
+                        
+                    <p>Após o treinamento dos modelos, a média dos resultados obtidos nas 10 iterações foi calculada. Essa média foi usada para selecionar o modelo final para a ferramenta Phi RDF, que tem o objetivo de prever novos casos de COVID-19 nos municípios do Rio Grande do Sul.</p>
+                        
+                    <p>O conjunto de teste não foi utilizado em nenhuma etapa de treinamento, sendo reservado exclusivamente para avaliar o desempenho final do modelo selecionado. As métricas utilizadas para avaliar o desempenho do modelo foram escolhidas com base no estado da arte da literatura de modelos de regressão. Essas métricas fornecem uma visão sobre a capacidade do modelo em fazer previsões precisas.</p>
+                        
+                    <p>Além dos modelos de machine learning mencionados, também é importante destacar o funcionamento do SHAP (Shapley Additive Explanations). O SHAP é uma técnica que ajuda a interpretar a importância de cada variável de entrada no processo de tomada de decisão do modelo de machine learning. Ele fornece uma explicação sobre como cada variável contribui para a previsão feita pelo modelo.</p>
+                        
+                    <p>Por exemplo, se o modelo prevê um alto número de casos de COVID-19 em um determinado município, o SHAP pode mostrar quais variáveis, como taxas de vacinação, número de leitos disponíveis ou densidade populacional, tiveram maior influência nessa previsão. Isso ajuda a entender quais fatores são mais relevantes na ocorrência de novos casos e fornece insights valiosos para a formulação de políticas públicas e tomada de decisões.</p>
+
+                    <p> <b>Para mais informações ou dúvidas:  </b> <mail>contato@phihc.com</mail></p>
+                      
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+          <!-- [ sample-page ] end -->
+        </div>
+        <!-- [ Main Content ] end -->
+      </div>
+    </div>
+    <!-- [ Main Content ] end -->
+    <footer class="pc-footer">
+      <div class="footer-wrapper container-fluid">
+        <div class="row">
+          <div class="col my-1">
+            <p class="m-0">Copyright &copy; <a href="http://phihc.com/" target="_blank">Phi Healthcare</a></p>
+          </div>
+          <div class="col-auto my-1">
+            <ul class="list-inline footer-link mb-0">
+              <li class="list-inline-item"><a href="http://phihc.com/" target="_blank">Home</a></li>
+              <!-- <li class="list-inline-item"><a href="#" target="_blank">Privacy Policy</a></li> -->
+              <li class="list-inline-item"><a href="http://phihc.com/#footer" target="_blank">Entre em contato</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+ <!-- Required Js -->
+<script src="/static/js/plugins/popper.min.js"></script>
+<script src="/static/js/plugins/simplebar.min.js"></script>
+<script src="/static/js/plugins/bootstrap.min.js"></script>
+<script src="/static/js/config.js"></script>
+<script src="/static/js/pcoded.js"></script>
+
+
+    <!-- [Page Specific JS] start -->
+    <!-- Apex Chart -->
+    <!-- <script src="/static/js/plugins/apexcharts.min.js"></script> -->
+    <script src="/static/js/pages/dashboard-default.js"></script>
+    <!-- [Page Specific JS] end -->
+  </body>
+  <!-- [Body] end -->
+</html>
