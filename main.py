@@ -17,8 +17,7 @@ from flask import Flask, render_template, jsonify, request
 # ajustar rota do SHAP para calcular somente as cidades abertas
 # Adicionar página de metodologia
 
-env_config = os.getenv("PROD_APP_SETTINGS", "config.DevelopmentConfig")
-app.config.from_object(env_config)
+
 
 def force_plot_html(explainer, shap_values, dado):
     force_plot = shap.force_plot(explainer.expected_value, shap_values, dado,
@@ -29,6 +28,8 @@ def force_plot_html(explainer, shap_values, dado):
     return shap_html
 
 app = Flask(__name__)
+env_config = os.getenv("PROD_APP_SETTINGS", "config.DevelopmentConfig")
+app.config.from_object(env_config)
 
 @app.route('/')
 def index():
