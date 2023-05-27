@@ -1,3 +1,10 @@
 venvFIOTEC/
 *.DS_Store
 model.pkl
+.env
+.DS_Store
+.venv
+.vscode
+__pycache__
+*.pyc
+.vscode
