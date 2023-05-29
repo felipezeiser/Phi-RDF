@@ -1,3 +1,7 @@
+
+import warnings
+warnings.filterwarnings("ignore", message=".*The 'nopython' keyword.*")
+
 import os
 import shap
 import json
@@ -28,8 +32,8 @@ def force_plot_html(explainer, shap_values, dado):
     return shap_html
 
 app = Flask(__name__)
-env_config = os.getenv("PROD_APP_SETTINGS", "config.DevelopmentConfig")
-app.config.from_object(env_config)
+# env_config = os.getenv("PROD_APP_SETTINGS", "config.DevelopmentConfig")
+# app.config.from_object(env_config)
 
 @app.route('/')
 def index():
@@ -142,7 +146,7 @@ def municipio_info():
     explainer = shap.TreeExplainer(modelo, dados.astype(float), feature_names=dados.columns)
     dado = dados[dados['municipio'] == int(municipio_id)]
     pred = modelo.predict(dado)
-
+    
     shap_atual = explainer.shap_values(dado)
     shap_html = force_plot_html(explainer,shap_atual,dado)
     
