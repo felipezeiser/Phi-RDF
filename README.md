@@ -17,33 +17,35 @@ Certifique-se de ter o Python instalado em sua máquina. Este código foi testad
 ## Instalação
 
 Clone este repositório para o seu diretório local:
-
+```
 $ git clone https://github.com/felipezeiser/Phi-RDF.git
-
+```
 Navegue para o diretório:
-
+```
 $ cd Phi-RDF
-
+```
 Crie um ambiente virtual:
-
+```
 $ python3 -m venv venv
-
+```
 Ative o ambiente virtual:
 
 No Windows:
+```
 $ venv\Scripts\activate
+```
 
 No MacOSLinux:
+```
 $ source venv/bin/activate
-
+```
 Instale as dependências do Phi-RDF:
+```
 $ pip install -r requirements.txt
-
+```
 Execute o aplicativo:
+```
 $ python main.py
-
+```
 O aplicativo será executado localmente em http://localhost:8080/
 
-
-<code>
-</code>
